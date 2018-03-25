@@ -16,14 +16,12 @@
         }
     ],
     "require": {
-        "php": "~5.6|~7"
-    },
-    "require-dev": {
+        "php": "~5.6|~7",
         "symfony/http-foundation": "~2.8|^3.0",
         "wonderwp/dependency-injection": "dev-develop@dev"
     },
     "autoload": {
-        "psr-4": {"WonderWp\\Component\\HttpFoundation\\": ""},
+        "psr-4": {"WonderWp\\Component\\HttpFoundation\\": "src"},
         "exclude-from-classmap": [
             "/Tests/"
         ]
