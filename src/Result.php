@@ -60,7 +60,7 @@ class Result implements \JsonSerializable
 
     /**
      * @codeCoverageIgnore
-     * @param string $data
+     * @param array $data
      */
     public function setData($data)
     {
