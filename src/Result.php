@@ -18,6 +18,7 @@ class Result implements \JsonSerializable
     /**
      * @param int   $code
      * @param array $data
+     *
      * @codeCoverageIgnore
      */
     public function __construct($code, $data = [])
@@ -37,6 +38,7 @@ class Result implements \JsonSerializable
 
     /**
      * @codeCoverageIgnore
+     *
      * @param int $code
      */
     public function setCode($code)
@@ -60,6 +62,7 @@ class Result implements \JsonSerializable
 
     /**
      * @codeCoverageIgnore
+     *
      * @param array $data
      */
     public function setData($data)
@@ -72,7 +75,8 @@ class Result implements \JsonSerializable
      *
      * @return $this
      */
-    public function addData(array $newData){
+    public function addData(array $newData)
+    {
         $this->data = $this->data + $newData;
 
         return $this;
@@ -92,5 +96,10 @@ class Result implements \JsonSerializable
     public function __toString()
     {
         return json_encode($this);
+    }
+
+    public function toArray()
+    {
+        return json_decode(json_encode($this), true);
     }
 }
