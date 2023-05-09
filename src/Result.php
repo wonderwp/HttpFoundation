@@ -16,7 +16,7 @@ class Result implements \JsonSerializable
     protected $data = [];
 
     /**
-     * @param int   $code
+     * @param int $code
      * @param array $data
      *
      * @codeCoverageIgnore
@@ -83,7 +83,7 @@ class Result implements \JsonSerializable
     }
 
     /** @inheritdoc */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $vars = get_object_vars($this);
 
