@@ -9,15 +9,19 @@ use WonderWp\Component\DependencyInjection\SingletonTrait;
 
 class Request extends BaseRequest implements SingletonInterface
 {
-    use SingletonTrait {
-        SingletonTrait::buildInstance as createInstance;
-    }
+    use SingletonTrait;
 
-    /** @inheritdoc */
-    public static function getInstance()
+    /**
+     * Build the single shared Request with one Session instance.
+     * Previously getInstance() called createFromGlobals() on every access,
+     * which broke ensureSession() and caused "headers already sent" fatals.
+     */
+    public static function buildInstance()
     {
         $instance = static::createFromGlobals();
-        $instance->setSession(new Session());
+        if (!$instance->hasSession()) {
+            $instance->setSession(new Session());
+        }
 
         return $instance;
     }
