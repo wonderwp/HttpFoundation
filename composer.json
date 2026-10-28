@@ -16,8 +16,8 @@
     }
   ],
   "require": {
-    "php": ">=8.0",
-    "symfony/http-foundation": "^5.3|^6.0",
+    "php": "^8.3",
+    "symfony/http-foundation": "^7.4",
     "wonderwp/dependency-injection": "dev-feature/php_8"
   },
   "autoload": {
@@ -26,5 +26,10 @@
       "/Tests/"
     ]
   },
-  "minimum-stability": "dev"
+  "minimum-stability": "dev",
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  }
 }
